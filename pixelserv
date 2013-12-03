@@ -2,13 +2,19 @@
 
 use IO::Socket::INET;
 
-$crlf  = "\015\012";
-$pixel = pack( "C*",
+my $conffile = "/etc/pixelserv.ip";
+
+my $crlf  = "\015\012";
+my $pixel = pack( "C*",
     qw(71 73 70 56 57 97 1 0 1 0 128 0 0 255 255 255 0 0 0 33 249 4 1 0 0 0 0 44 0 0 0 0 1 0 1 0 0 2 2 68 1 0 59)
 );
 
-$sock = new IO::Socket::INET(
-    LocalHost => '0.0.0.0',
+open(my $fh, "<", $conffile) || die "can't open $conffile: $!";
+my $listento = do { local $/; <$fh> };
+close($fh) || die "can't close $conffile: $!";
+
+my $sock = new IO::Socket::INET(
+    LocalHost => $listento,
     LocalPort => '80',
     Proto     => 'tcp',
     Listen    => 30,
@@ -20,12 +26,12 @@ if ( !defined($sock) ) {
     exit(1);
 }
 
-while ( $new_sock = $sock->accept() ) {
+while (my  $new_sock = $sock->accept() ) {
     while (<$new_sock>) {
         chop;
         chop;
 
-        #		print "$_\n";
+        # print "$_\n";
         if ( $_ eq '' ) { last; }
     }
     print $new_sock "HTTP/1.1 200 OK$crlf";
