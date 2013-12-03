@@ -1,5 +1,13 @@
 #! /usr/bin/perl -Tw
 
+##-----------------------------------------------------------------------
+## Porgram: pixelserv
+## Purpose: super minimal webserver serving a 1x1 pixel transparent gif
+## Authors: Antonio Sun (c) 2013
+## Authors: Originally wrote by Piet Wintjens, date unknown
+## License: covered by the new BSD (no advertising clause) license
+##-----------------------------------------------------------------------
+
 use IO::Socket::INET;
 
 my $conffile = "/etc/pixelserv.ip";
