@@ -10,7 +10,7 @@
 
 use IO::Socket::INET;
 
-my $conffile = "/etc/pixelserv.ip";
+my $conffile = "/etc/dbab.ip";
 
 my $crlf  = "\015\012";
 my $pixel = pack( "C*",
