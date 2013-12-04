@@ -21,6 +21,13 @@ open(my $fh, "<", $conffile) || die "can't open $conffile: $!";
 my $listento = do { local $/; <$fh> };
 close($fh) || die "can't close $conffile: $!";
 
+if ( $listento =~ /^([\d.]+)$/ ) {
+    $listento = $1;                # $listento now untainted
+}
+else {
+    die "Bad listen to address: '$listento'";
+}
+
 my $sock = new IO::Socket::INET(
     LocalHost => $listento,
     LocalPort => '80',
