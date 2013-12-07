@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/suntong001/dbab
 
 Package: dbab
 Architecture: any
-Depends: ${misc:Depends}, dnsmasq, curl 
+Depends: ${misc:Depends}, ${perl:Depends}, dnsmasq, curl 
 Description: dnsmasq-based ad-blocking using pixelserv
  Block accessing to the ad sites from the DNS level, super fast and
  efficient because no pattern matching or string substitution involved.
