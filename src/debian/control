@@ -9,7 +9,7 @@ Vcs-Git: git@github.com:suntong001/dbab.git
 Vcs-Browser: https://github.com/suntong001/dbab
 
 Package: dbab
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}, ${perl:Depends}, dnsmasq, curl 
 Description: dnsmasq-based ad-blocking using pixelserv
  Block accessing to the ad sites from the DNS level, super fast and
