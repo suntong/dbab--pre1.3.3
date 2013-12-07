@@ -1,0 +1,14 @@
+#!/bin/sh
+
+##-----------------------------------------------------------------------
+## Porgram: dbab-add-list
+## Purpose: Add your own entries to dnsmasq blocking list
+## Authors: Tong Sun (c) 2013
+## License: BSD license
+##-----------------------------------------------------------------------
+
+dbab_list=/etc/dbab.list+
+pixelserv_addr=`cat /etc/dbab.addr`
+
+# Add the trash-sites to DNSmasq blocking
+sed 's#^.*$#'"address=/&/$pixelserv_addr#" $dbab_list > /etc/dnsmasq.d/dnsmasq.trashsites.conf

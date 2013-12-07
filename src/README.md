@@ -14,6 +14,8 @@ Ad blocking by using DNSmasq + Pixelserv.
 - Block accessing to the ad sites from the DNS level
 - Leave the web pages intact, without any pattern matching and string substitution.
 - All ads will be replaced by a 1x1 pixel gif image served locally by the Pixelserv server.
+- The block list can be peirodically downloaded from pgl.yoyo.org, with the ability of local tweaking.
+
 
 ALTERNATIVES
 ------------

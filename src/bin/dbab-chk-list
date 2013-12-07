@@ -1,0 +1,14 @@
+#!/bin/sh
+
+##-----------------------------------------------------------------------
+## Porgram: dbab-get-list
+## Purpose: Check if our own list is already covered by pgl.yoyo.org
+## Authors: Tong Sun (c) 2013
+## License: BSD license
+##-----------------------------------------------------------------------
+
+dbab_list=/etc/dbab.list+
+block_list=/etc/dnsmasq.d/dnsmasq.adblock.conf
+
+# Check if our trash-sites list is already covered 
+grep -Ff $dbab_list $block_list

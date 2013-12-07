@@ -1,0 +1,20 @@
+Source: dbab
+Section: net
+Priority: optional
+Maintainer: Tong Sun <suntong001@users.sourceforge.net>
+Build-Depends: debhelper (>= 8.0.0), ruby-ronn (>= 0.7.3)
+Standards-Version: 3.9.4
+Homepage: https://github.com/suntong001/dbab
+Vcs-Git: git@github.com:suntong001/dbab.git
+Vcs-Browser: https://github.com/suntong001/dbab
+
+Package: dbab
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, dnsmasq, curl 
+Description: dnsmasq-based ad-blocking using pixelserv
+ Block accessing to the ad sites from the DNS level, super fast and
+ efficient because no pattern matching or string substitution involved.
+ All ads will be replaced by a 1×1 pixel gif image served locally by
+ the tiny pixelserv server. The block list can be peirodically
+ downloaded from pgl.yoyo.org, with the ability of local tweaking.
+ 

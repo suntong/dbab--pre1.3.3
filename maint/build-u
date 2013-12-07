@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -rf *
+lndir -silent ../dbab/src/
+echo done.

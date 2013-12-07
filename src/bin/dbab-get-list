@@ -1,0 +1,13 @@
+#!/bin/sh
+
+##-----------------------------------------------------------------------
+## Porgram: dbab-get-list
+## Purpose: Get dnsmasq blocking list from pgl.yoyo.org
+## Authors: Tong Sun (c) 2013
+## License: BSD license
+##-----------------------------------------------------------------------
+
+pixelserv_addr=`cat /etc/dbab.addr`
+
+# Down the DNSmasq formatted ad block list
+curl "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=dnsmasq&showintro=0&mimetype=plaintext" | grep -vFf /etc/dbab.list- | sed "s/127\.0\.0\.1/$pixelserv_addr/" > /etc/dnsmasq.d/dnsmasq.adblock.conf
