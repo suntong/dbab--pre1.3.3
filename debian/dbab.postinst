@@ -1,5 +1,5 @@
 #! /bin/sh
-# postinst script for autoconvert
+# postinst script for dbab
 #
 # see: dh_installdeb(1)
 
@@ -25,6 +25,7 @@ set -e
 case "$1" in
 configure)
   update-rc.d dbab-service defaults
+  /usr/sbin/dbab-get-list
   /usr/sbin/dbab-add-list
   ;;
 
