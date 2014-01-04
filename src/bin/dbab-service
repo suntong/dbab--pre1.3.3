@@ -12,7 +12,7 @@ case "$1" in
      echo "Stopping dbab pixel server"
      killall dbab-pixelserv
      ;;
-   restart)
+   restart|force-reload)
      echo "Restarting dbab pixel server"
      $0 stop
      $0 start
