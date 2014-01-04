@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sudo rm -rf *
+cp -a  --link ../../dbab/src/* .
+cp -a  --link ../../dbab/debian/ .
+echo done.
