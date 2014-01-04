@@ -2,6 +2,20 @@
 # /etc/init.d/dbab-service
 #
 
+# Ref: https://wiki.debian.org/LSBInitScripts
+### BEGIN INIT INFO
+# Provides:          dbab-service
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start dbab-pixelserv daemon at boot time
+# Description:       Enable service provided by dbab-pixelserv daemon.
+### END INIT INFO
+
+# http://lintian.debian.org/tags/init.d-script-does-not-source-init-functions.html
+. /lib/lsb/init-functions
+
 # Carry out specific functions when asked to by the system
 case "$1" in
    start)
