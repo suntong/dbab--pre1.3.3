@@ -3,18 +3,21 @@
 ## SYNOPSIS
 
     # start dbab-pixelserv server
-	/etc/init.d/dbab start
+	/etc/init.d/dbab-service start
 
     # stop dbab-pixelserv server
-	/etc/init.d/dbab stop
+	/etc/init.d/dbab-service stop
 
     # get/update ad blocking list
-	dbab-add-list
+	/usr/sbin/dbab-get-list
+
+	# add your own to the ad blocking list
+	/usr/sbin/dbab-add-list
 
 
 ## DESCRIPTION
 
-Ad blocking by using DNSmasq + Pixelserv -- block accessing to the ad sites from the DNS level. I.e., your DNS server is smart enough to know which sites are ad sites and block access to them right there. No more user space extensive pattern matching necessary at all. 
+Ad blocking by using DNSmasq + Pixelserv -- block accessing to the ad sites from the DNS level. I.e., the DNS server is smart enough to know which sites are ad-sites and block access to them right there. No more user space extensive pattern matching necessary at all. 
 
 
 ## ALTERNATIVES
@@ -29,16 +32,16 @@ Comparing to other ad-blocking efforts, `dbab` will be super light. Only a few o
 
 The advantages of using `dbab` are:
 
-- Work at the DNS level. Leave the web pages intact, without any pattern matching and string substitution.
-- Serve instantly. All ads will be replaced by a 1x1 pixel gif image served locally by the Pixelserv server.
-- Maintenance free. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can define your local tweaking that filter them out.
+- **Work at the DNS level**. Leave the web pages intact, without any pattern matching, string substitution, and/or html elements replacing.
+- **Serve instantly**. All ads will be replaced by a 1x1 pixel gif image served locally by the `dbab-pixelserv` server.
+- **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can define your local tweaking that filter them out.
 
 ## DBAB-PIXELSERV
 
 The `dbab-pixelserv` is a super minimal web server, it's one and only purpose is serving a 1x1 pixel transparent gif file. By default it listens on localhost. If you also have a normal webserver on your DNS server, you can
 
 - add a second IP address to your DNSmasq server using a virtual interface, or
-- use the virtual hosts option of your local http server.
+- use the virtual hosts option of your local http server to server the 1x1 pixel gif image.
 
 ## DBAB-GET-LIST
 
@@ -50,7 +53,7 @@ You can run it once, or put it in a cron job so as to update the block list peri
 
 ## DBAB-ADD-LIST
 
-You can use `dbab-add-list` to add your own entries to dnsmasq blocking list, if the list from pgl.yoyo.org is not sufficient for you. 
+You can use `dbab-add-list` to add your own entries to `dnsmasq` blocking list, if the list from pgl.yoyo.org is not sufficient for you. 
 
 ## DBAB-CHK-LIST
 
@@ -75,4 +78,4 @@ License: BSD-3-Clause
 
 The pixelserv was originally downloaded from  
  http://proxytunnel.sourceforge.net/files/pixelserv.pl.txt  
-Originally wrote by Piet Wintjens, with BSD (no advertising clause) license.
+Wrote by Piet Wintjens, with BSD (no advertising clause) license.
