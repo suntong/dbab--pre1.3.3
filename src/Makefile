@@ -17,11 +17,13 @@ install:
 	$(INSTALL) -m 755 -d $(bindir)
 	$(INSTALL) -m 755 -d $(mandir)
 	$(INSTALL) -m 755 -d $(etcdir)
+	$(INSTALL) -m 755 -d $(etcdir)/init.d
 
-	$(INSTALL) -m 755 bin/dbab-pixelserv $(bindir)
 	$(INSTALL) -m 755 bin/dbab-get-list $(bindir)
 	$(INSTALL) -m 755 bin/dbab-add-list $(bindir)
 	$(INSTALL) -m 755 bin/dbab-chk-list $(bindir)
+	$(INSTALL) -m 755 bin/dbab-pixelserv $(bindir)
+	$(INSTALL) -m 755 bin/dbab-service $(etcdir)/init.d
 
 	$(INSTALL) -m 644 assets/dbab-pixelserv.8 $(mandir)
 #	$(INSTALL) -m 644 assets/dbab-get-list.8 $(mandir)
