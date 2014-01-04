@@ -2,19 +2,20 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: dbab
 Source: https://github.com/suntong001/dbab
 
-pixelserv was downloaded from
- http://proxytunnel.sourceforge.net/files/pixelserv.pl.txt
-Originally wrote by Piet Wintjens, email & date unknown
-It is covered by the new BSD (no advertising clause) license
-Ref: http://proxytunnel.sourceforge.net/pixelserv.php
-
 Files: *
-Copyright: 2013 Tong Sun <suntong001@users.sourceforge.net>
+Copyright: 2013-2014 Tong Sun <suntong001@users.sourceforge.net>
 License: BSD-3-Clause
 
-Files: debian/*
-Copyright: 2013 Tong Sun <suntong001@users.sourceforge.net>
-License: BSD-3-Clause
+Files: bin/dbab-pixelserv
+Copyright: 2013-2014 Tong Sun <suntong001@users.sourceforge.net>
+	   Originally wrote by Piet Wintjens, email & date unknown
+License: BSD
+  It is covered by the new BSD (no advertising clause) license
+  Ref: http://proxytunnel.sourceforge.net/pixelserv.php
+  .
+  Originally downloaded from
+  http://proxytunnel.sourceforge.net/files/pixelserv.pl.txt
+  
 
 License: BSD-3-Clause
  Redistribution and use in source and binary forms, with or without
