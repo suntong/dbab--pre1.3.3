@@ -25,8 +25,8 @@ set -e
 case "$1" in
 configure)
   update-rc.d dbab-service defaults
-  /usr/sbin/dbab-get-list
-  /usr/sbin/dbab-add-list
+  dbab-get-list
+  dbab-add-list
   ;;
 
 abort-upgrade|abort-remove|abort-deconfigure)
