@@ -5,7 +5,7 @@ Maintainer: Tong Sun <suntong001@users.sourceforge.net>
 Build-Depends: debhelper (>= 9), ruby-ronn (>= 0.7.3)
 Standards-Version: 3.9.5
 Homepage: https://github.com/suntong001/dbab
-Vcs-Git: git@github.com:suntong001/dbab.git
+Vcs-Git: https://github.com/suntong001/dbab.git
 Vcs-Browser: https://github.com/suntong001/dbab
 
 Package: dbab
