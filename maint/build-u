@@ -1,5 +1,11 @@
 #!/bin/sh
 
-rm -rf *
-lndir -silent ../../dbab/src/
+prog_spec=$0
+
+# source the debian base ver
+prog_deb=`echo $prog_spec | sed 's/-u$//'`-d
+. $prog_deb
+
+# Ubuntu-lize
+sed -i "1s/ unstable;/ `lsb_release -cs`;/" debian/changelog
 echo done.
