@@ -6,7 +6,7 @@ Files: *
 Copyright: 2013-2014 Tong Sun <suntong001@users.sourceforge.net>
 License: BSD-3-Clause
 
-Files: bin/dbab-pixelserv
+Files: bin/dbab-svr
 Copyright: 2013-2014 Tong Sun <suntong001@users.sourceforge.net>
 	   Originally wrote by Piet Wintjens, email & date unknown
 License: BSD

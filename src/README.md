@@ -2,10 +2,10 @@
 
 ## SYNOPSIS
 
-    # start dbab-pixelserv server
+    # start dbab-svr server
 	/etc/init.d/dbab-service start
 
-    # stop dbab-pixelserv server
+    # stop dbab-svr server
 	/etc/init.d/dbab-service stop
 
     # get/update ad blocking list
@@ -33,12 +33,12 @@ Comparing to other ad-blocking efforts, `dbab` will be super light. Only a few o
 The advantages of using `dbab` are:
 
 - **Work at the DNS level**. Leave the web pages intact, without any pattern matching, string substitution, and/or html elements replacing.
-- **Serve instantly**. All ads will be replaced by a 1x1 pixel gif image served locally by the `dbab-pixelserv` server.
+- **Serve instantly**. All ads will be replaced by a 1x1 pixel gif image served locally by the `dbab-svr` server.
 - **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can define your local tweaking that filter them out.
 
 ## DBAB-PIXELSERV
 
-The `dbab-pixelserv` is a super minimal web server, it's one and only purpose is serving a 1x1 pixel transparent gif file. By default it listens on localhost. If you also have a normal webserver on your DNS server, you can
+The `dbab-svr` is a super minimal web server, it's one and only purpose is serving a 1x1 pixel transparent gif file. By default it listens on localhost. If you also have a normal webserver on your DNS server, you can
 
 - add a second IP address to your DNSmasq server using a virtual interface, or
 - use the virtual hosts option of your local http server to server the 1x1 pixel gif image.
@@ -62,7 +62,7 @@ The `dbab-chk-list` can help you to check if your own list is already covered by
 ## FILES 
 
 * /etc/dbab.addr:  
-  The IP address that `dbab-pixelserv` listens on. Defaults to localhost.
+  The IP address that `dbab-svr` listens on. Defaults to localhost.
   
 * /etc/dbab.list-:  
   The entries you want to filter out from the pgl.yoyo.org lists. List sites you still wish to visit there. 
