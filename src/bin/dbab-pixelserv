@@ -6,18 +6,24 @@
 ## Authors: Tong Sun (c) 2013
 ## Authors: Originally wrote by Piet Wintjens, date unknown
 ## License: covered by the new BSD (no advertising clause) license
+## Reference: Well House Consultants training course
+##	    http://www.wellho.net/resources/ex.php4?item=p402/miniserver.pl
 ##-----------------------------------------------------------------------
 
 use IO::Socket::INET;
 
 my $conffile = "/etc/dbab.addr";
+my $proxyfile = "/etc/dbab.proxy";
 
-my $crlf  = "\015\012";
+my $crlf  = Socket::CRLF;
 my $pixel = pack( "C*",
     qw(71 73 70 56 57 97 1 0 1 0 128 0 0 255 255 255 0 0 0 33 249 4 1 0 0 0 0 44 0 0 0 0 1 0 1 0 0 2 2 68 1 0 59)
 );
 
-open(my $fh, "<", $conffile) || die "can't open $conffile: $!";
+my $fh;
+
+#-------- conf file ---------------
+open($fh, "<", $conffile) || die "can't open $conffile: $!";
 my $listento = do { local $/; <$fh> };
 close($fh) || die "can't close $conffile: $!";
 
@@ -28,6 +34,20 @@ else {
     die "Bad listen to address: '$listento'";
 }
 
+#-------- proxy file ---------------
+open($fh, "<", $proxyfile) || die "can't open $proxyfile: $!";
+my $proxyaddr = do { local $/; <$fh> };
+close($fh) || die "can't close $proxyfile: $!";
+
+if ( $proxyaddr =~ /^([\w.]+)$/ ) {
+    $proxyaddr = $1;                # $proxyaddr now untainted
+}
+else {
+    die "Bad listen to address: '$proxyaddr'";
+}
+
+
+# Setup and create socket
 my $sock = new IO::Socket::INET(
     LocalHost => $listento,
     LocalPort => '80',
@@ -41,19 +61,39 @@ if ( !defined($sock) ) {
     exit(1);
 }
 
+# Await requests and handle them as they arrive
 while (my  $new_sock = $sock->accept() ) {
+    my %request = ();
+    local $/ = $crlf;
+    #-------- Read Request ---------------
     while (<$new_sock>) {
-        chop;
-        chop;
+	chomp; # Main http request
+	if (/\s*(\w+)\s*([^\s]+)\s*HTTP\/(\d.\d)/) {
+	    $request{METHOD} = uc $1;
+	    $request{URL} = $2;
+	    $request{HTTP_VERSION} = $3;
+	    next;
+	}
 
-        # print "$_\n";
-        if ( $_ eq '' ) { last; }
+        # print ">$_<\n";
+        if ( /^$/ ) { last; }
     }
-    print $new_sock "HTTP/1.1 200 OK$crlf";
-    print $new_sock "Content-type: image/gif$crlf";
-    print $new_sock "Accept-ranges: bytes$crlf";
-    print $new_sock "Content-length: 43$crlf$crlf";
-    print $new_sock $pixel;
+
+    if ($request{METHOD} eq 'GET' and
+    	    ($request{URL} eq '/proxy.pac' or
+    	     $request{URL} eq '/wpad.dat') ) {
+	#------- Serve pac/wpad file --------------------
+    	print $new_sock "function FindProxyForURL(url, host) {".
+    	    qq| return "PROXY $proxyaddr:3128; DIRECT"; }$crlf|;
+    } else {
+	#------- Serve pixel file ----------------------
+	print $new_sock "HTTP/1.1 200 OK$crlf";
+	print $new_sock "Content-type: image/gif$crlf";
+	print $new_sock "Accept-ranges: bytes$crlf";
+	print $new_sock "Content-length: 43$crlf$crlf";
+	print $new_sock $pixel;
+    }
+
     shutdown( $new_sock, 2 );
     undef($new_sock);
 }
