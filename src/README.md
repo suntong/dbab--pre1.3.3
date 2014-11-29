@@ -17,7 +17,8 @@
 
 ## DESCRIPTION
 
-Ad blocking by using DNSmasq + Pixelserv -- block accessing to the ad sites from the DNS level. I.e., the DNS server is smart enough to know which sites are ad-sites and block access to them right there. No more user space extensive pattern matching necessary at all. 
+dbab provides a total solution for SOHO service environment, smoothly integrates DHCP, DNS, local caching and Ad blocking into harmony.
+Ad blocking is done by DNSmasq + Pixelserv, i.e., done at the DNS level -- all requests to ad-sites are blocked right there at DNS. No more user space extensive pattern matching necessary at all. Work for your mobile devices as well. You don't need to install anything to your mobile devices to enjoy the ad-free and speed-up browsing.
 
 
 ## ALTERNATIVES
@@ -33,15 +34,13 @@ Comparing to other ad-blocking efforts, `dbab` will be super light. Only a few o
 The advantages of using `dbab` are:
 
 - **Work at the DNS level**. Leave the web pages intact, without any pattern matching, string substitution, and/or html elements replacing.
+- **Work for your mobile devices as well**. Were you previously in the dilemma of choosing ads free or slow response for your mobile devices (iphone, ipad, etc)? Now you don't. You don't need to install any thing to your mobile devices for them to enjoy the ad-free browsing experience. Moreover, their browsing speed will increase dramatically on revisited paged/images. 
 - **Serve instantly**. All ads will be replaced by a 1x1 pixel gif image served locally by the `dbab-svr` server.
-- **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can define your local tweaking that filter them out.
+- **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can add-to or remove-from that list easily. 
 
-## DBAB-PIXELSERV
+## DBAB-SVR
 
-The `dbab-svr` is a super minimal web server, it's one and only purpose is serving a 1x1 pixel transparent gif file. By default it listens on localhost. If you also have a normal webserver on your DNS server, you can
-
-- add a second IP address to your DNSmasq server using a virtual interface, or
-- use the virtual hosts option of your local http server to server the 1x1 pixel gif image.
+The `dbab-svr` is a super minimal web server / pixelserv, it has one purpose of serving a 1x1 pixel transparent gif file. It can optionally provide the automatic WPAD service as well if so configured. By default it listens on localhost. 
 
 ## DBAB-GET-LIST
 
@@ -70,6 +69,9 @@ The `dbab-chk-list` can help you to check if your own list is already covered by
 * /etc/dbab.list+:  
   The entries you want to add to blocking list on top of the pgl.yoyo.org list, used by `dbab-add-list`. 
 
+* /etc/dbab.proxy:  
+  The name or IP address of your squid caching server. Defaults to localhost.
+  
 
 ## AUTHOR
 

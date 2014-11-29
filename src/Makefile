@@ -4,6 +4,7 @@ INSTALL = /usr/bin/install -c
 prefix = ${DESTDIR}/usr
 exec_prefix = ${prefix}
 mandir = ${prefix}/share/man/man8
+docdir = ${prefix}/share/doc/dbab
 bindir = ${exec_prefix}/sbin
 etcdir = ${DESTDIR}/etc
 
@@ -16,6 +17,7 @@ clean:
 install:
 	$(INSTALL) -m 755 -d $(bindir)
 	$(INSTALL) -m 755 -d $(mandir)
+	$(INSTALL) -m 755 -d $(docdir)
 	$(INSTALL) -m 755 -d $(etcdir)
 	$(INSTALL) -m 755 -d $(etcdir)/init.d
 
@@ -29,7 +31,9 @@ install:
 #	$(INSTALL) -m 644 assets/dbab-get-list.8 $(mandir)
 #	$(INSTALL) -m 644 assets/dbab-add-list.8 $(mandir)
 #	$(INSTALL) -m 644 assets/dbab-chk-list.8 $(mandir)
+	$(INSTALL) -m 644 dbab.html $(docdir)
 
 	$(INSTALL) -m 644 assets/dbab.addr $(etcdir)
 	$(INSTALL) -m 644 assets/dbab.list+ $(etcdir)
 	$(INSTALL) -m 644 assets/dbab.list- $(etcdir)
+	$(INSTALL) -m 644 assets/dbab.proxy $(etcdir)
