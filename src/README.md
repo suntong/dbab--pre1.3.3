@@ -58,6 +58,11 @@ You can use `dbab-add-list` to add your own entries to `dnsmasq` blocking list, 
 
 The `dbab-chk-list` can help you to check if your own list is already covered by pgl.yoyo.org.
 
+## DHCP-ADD-WPAD
+
+he `dhcp-add-wpad` will take the content in `/etc/dbab.proxy` as the host name of the squid caching server, as well as taking the content in `/etc/dbab.addr` as
+the IP address of `dhcp` server, then enable the automatic WPAD service within the system, with the help of the DNS and DHCP server. 
+
 ## FILES 
 
 * /etc/dbab.addr:  
