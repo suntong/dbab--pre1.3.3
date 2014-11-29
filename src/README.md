@@ -34,7 +34,7 @@ Comparing to other ad-blocking efforts, `dbab` will be super light. Only a few o
 The advantages of using `dbab` are:
 
 - **Work at the DNS level**. Leave the web pages intact, without any pattern matching, string substitution, and/or html elements replacing.
-- **Work for your mobile devices as well**. Were you previously in the dilemma of choosing ads free or slow response for your mobile devices (iphone, ipad, etc)? Now you don't. You don't need to install any thing to your mobile devices for them to enjoy the ad-free browsing experience. Moreover, their browsing speed will increase dramatically on revisited paged/images. 
+- **Work for your mobile devices as well**. Were you previously in the dilemma of choosing ads free or slow response for your mobile devices (iphone, ipad, etc)? Now you don't. You don't need to install any thing to your mobile devices for them to enjoy the ad-free browsing experience. Moreover, their browsing speed will increase dramatically on revisited pages/images. 
 - **Serve instantly**. All ads will be replaced by a 1x1 pixel gif image served locally by the `dbab-svr` server.
 - **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can add-to or remove-from that list easily. 
 
@@ -76,6 +76,9 @@ the IP address of `dhcp` server, then enable the automatic WPAD service within t
 
 * /etc/dbab.proxy:  
   The name or IP address of your squid caching server. Defaults to localhost.
+  
+* /usr/share/doc/dbab/dbab.html:  
+  The more detailed introduction and installation guild.
   
 
 ## AUTHOR
