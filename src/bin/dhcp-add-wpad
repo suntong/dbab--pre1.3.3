@@ -1,0 +1,17 @@
+#!/bin/sh
+
+##-----------------------------------------------------------------------
+## Porgram: dhcp-add-wpad
+## Purpose: Add WPAD (Web Proxy Autodiscovery Protocol) to dbab/dhch service
+## Authors: Tong Sun (c) 2014
+## License: BSD license
+##-----------------------------------------------------------------------
+
+pixelserv_addr=`cat /etc/dbab.addr`
+
+# Add wpad DNS entry
+echo "host-record=wpad,$pixelserv_addr" > /etc/dnsmasq.d/dnsmasq.wpad.conf
+# Add wpad location to dhcp server
+echo 'dhcp-option=252,"http://wpad/wpad.dat"' >> /etc/dnsmasq.d/dnsmasq.wpad.conf
+# Report
+echo File /etc/dnsmasq.d/dnsmasq.wpad.conf updated.
