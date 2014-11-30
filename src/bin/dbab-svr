@@ -1,9 +1,9 @@
 #! /usr/bin/perl -Tw
 
 ##-----------------------------------------------------------------------
-## Porgram: pixelserv
+## Porgram: dbab-svr pixelserv
 ## Purpose: super minimal webserver serving a 1x1 pixel transparent gif
-## Authors: Tong Sun (c) 2013
+## Authors: Tong Sun (c) 2013,2014
 ## Authors: Originally wrote by Piet Wintjens, date unknown
 ## License: covered by the new BSD (no advertising clause) license
 ## Reference: Well House Consultants training course
