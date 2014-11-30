@@ -933,7 +933,7 @@ http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-style: italic"><span style="color: #9A1900"># (run the following as root)</span></span>
 
 <span style="font-style: italic"><span style="color: #9A1900"># stop dbab service</span></span>
-/etc/init<span style="color: #990000">.</span>d/dbab-service stop
+/etc/init<span style="color: #990000">.</span>d/dbab stop
 
 <span style="font-style: italic"><span style="color: #9A1900"># use the second IP for dbab-svr to listens on</span></span>
 ip -f inet addr show eth0 <span style="color: #990000">|</span> awk <span style="color: #FF0000">'/inet /{print $2}'</span> <span style="color: #990000">|</span> sed <span style="color: #FF0000">'s|/.*$||; 1d'</span> <span style="color: #990000">|</span> sudo tee /etc/dbab<span style="color: #990000">.</span>addr
@@ -961,7 +961,7 @@ hostname <span style="color: #990000">|</span> tee /etc/dbab<span style="color: 
 /etc/init<span style="color: #990000">.</span>d/dnsmasq restart
 
 <span style="font-style: italic"><span style="color: #9A1900"># re-start dbab service</span></span>
-/etc/init<span style="color: #990000">.</span>d/dbab-service start
+/etc/init<span style="color: #990000">.</span>d/dbab start
 
 <span style="font-style: italic"><span style="color: #9A1900"># re-start your local web server again if you have any</span></span></tt></pre></div></div>
 <div class="paragraph"><p>That&#8217;s it. We&#8217;re done.</p></div>

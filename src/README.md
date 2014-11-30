@@ -3,10 +3,10 @@
 ## SYNOPSIS
 
     # start dbab-svr server
-	/etc/init.d/dbab-service start
+	/etc/init.d/dbab start
 
     # stop dbab-svr server
-	/etc/init.d/dbab-service stop
+	/etc/init.d/dbab stop
 
     # get/update ad blocking list
 	/usr/sbin/dbab-get-list

@@ -24,7 +24,7 @@ set -e
 
 case "$1" in
 configure)
-  update-rc.d dbab-service defaults
+  update-rc.d dbab defaults
   dbab-get-list
   dbab-add-list
   ;;

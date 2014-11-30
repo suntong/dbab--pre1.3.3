@@ -7,7 +7,7 @@ set -e
 
 # http://www.debian.org/doc/debian-policy/ch-opersys.html#s9.3.3.1
 if [ "$1" = purge ]; then
-    update-rc.d -f dbab-service remove
+    update-rc.d -f dbab remove
 fi
 
 # dh_installdeb will replace this with shell code automatically
