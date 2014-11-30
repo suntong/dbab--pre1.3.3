@@ -18,5 +18,5 @@ Description: dnsmasq-based ad-blocking using pixelserv
  fast.  All ads will be replaced by a 1×1 pixel gif image served locally by
  the tiny pixelserv server. The ad-block list can be periodically downloaded
  from pgl.yoyo.org, with the ability of local tweaking. Speed up mobile
- device browsing without installing anything apps to them.
+ device browsing without installing any apps to them.
  
