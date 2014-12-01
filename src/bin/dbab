@@ -13,7 +13,7 @@ fi
 # Description:       dnsmasq-based ad-blocking using pixelserv.
 ### END INIT INFO
 
-DESC="Description of the service"
+DESC="dnsmasq-based ad-blocker"
 DAEMON=/usr/sbin/dbab-srv
 
 START_ARGS="--background --make-pidfile"
