@@ -1,0 +1,8 @@
+description "dnsmasq based ad blocker"
+
+start on filesystem
+stop on runlevel [016] or unmounting-filesystem
+
+reload signal 0
+
+exec /usr/sbin/dbab-srv
