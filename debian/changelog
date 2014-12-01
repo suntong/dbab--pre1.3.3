@@ -1,6 +1,7 @@
 dbab (1.1.1-1) unstable; urgency=low
 
   * Now able to set proxy automatically
+  * Official Debian release (closes: #771532)
 
  -- Tong Sun <suntong001@users.sourceforge.net>  Sat, 29 Nov 2014 23:13:33 -0500
 
