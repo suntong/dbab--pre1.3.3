@@ -30,9 +30,10 @@ install:
 	$(INSTALL) -m 755 bin/dbab $(etcdir)/init.d
 
 	$(INSTALL) -m 644 assets/dbab-svr.8 $(mandir)
-#	$(INSTALL) -m 644 assets/dbab-get-list.8 $(mandir)
-#	$(INSTALL) -m 644 assets/dbab-add-list.8 $(mandir)
-#	$(INSTALL) -m 644 assets/dbab-chk-list.8 $(mandir)
+	$(INSTALL) -m 644 assets/dbab-add-list.1 $(mandir)
+	$(INSTALL) -m 644 assets/dbab-chk-list.1 $(mandir)
+	$(INSTALL) -m 644 assets/dbab-get-list.1 $(mandir)
+	$(INSTALL) -m 644 assets/dhcp-add-wpad.1 $(mandir)
 	$(INSTALL) -m 644 dbab.html $(docdir)
 
 	$(INSTALL) -m 644 assets/dbab.addr $(astdir)
