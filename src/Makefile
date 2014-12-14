@@ -7,6 +7,7 @@ mandir = ${prefix}/share/man/man8
 docdir = ${prefix}/share/doc/dbab
 bindir = ${exec_prefix}/sbin
 etcdir = ${DESTDIR}/etc
+astdir = ${etcdir}/dbab
 
 man:
 	cat README.md | ronn > assets/dbab-svr.8
@@ -20,6 +21,7 @@ install:
 	$(INSTALL) -m 755 -d $(docdir)
 	$(INSTALL) -m 755 -d $(etcdir)
 	$(INSTALL) -m 755 -d $(etcdir)/init.d
+	$(INSTALL) -m 755 -d $(astdir)
 
 	$(INSTALL) -m 755 bin/dbab-get-list $(bindir)
 	$(INSTALL) -m 755 bin/dbab-add-list $(bindir)
@@ -33,7 +35,7 @@ install:
 #	$(INSTALL) -m 644 assets/dbab-chk-list.8 $(mandir)
 	$(INSTALL) -m 644 dbab.html $(docdir)
 
-	$(INSTALL) -m 644 assets/dbab.addr $(etcdir)
-	$(INSTALL) -m 644 assets/dbab.list+ $(etcdir)
-	$(INSTALL) -m 644 assets/dbab.list- $(etcdir)
-	$(INSTALL) -m 644 assets/dbab.proxy $(etcdir)
+	$(INSTALL) -m 644 assets/dbab.addr $(astdir)
+	$(INSTALL) -m 644 assets/dbab.list+ $(astdir)
+	$(INSTALL) -m 644 assets/dbab.list- $(astdir)
+	$(INSTALL) -m 644 assets/dbab.proxy $(astdir)
