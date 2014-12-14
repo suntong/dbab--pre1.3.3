@@ -3,7 +3,7 @@ INSTALL = /usr/bin/install -c
 # Installation directories
 prefix = ${DESTDIR}/usr
 exec_prefix = ${prefix}
-mandir = ${prefix}/share/man/man8
+mandir = ${prefix}/share/man
 docdir = ${prefix}/share/doc/dbab
 bindir = ${exec_prefix}/sbin
 etcdir = ${DESTDIR}/etc
@@ -17,7 +17,8 @@ clean:
 
 install:
 	$(INSTALL) -m 755 -d $(bindir)
-	$(INSTALL) -m 755 -d $(mandir)
+	$(INSTALL) -m 755 -d $(mandir)/man1
+	$(INSTALL) -m 755 -d $(mandir)/man8
 	$(INSTALL) -m 755 -d $(docdir)
 	$(INSTALL) -m 755 -d $(etcdir)
 	$(INSTALL) -m 755 -d $(etcdir)/init.d
@@ -29,11 +30,11 @@ install:
 	$(INSTALL) -m 755 bin/dbab-svr $(bindir)
 	$(INSTALL) -m 755 bin/dbab $(etcdir)/init.d
 
-	$(INSTALL) -m 644 assets/dbab-svr.8 $(mandir)
-	$(INSTALL) -m 644 assets/dbab-add-list.1 $(mandir)
-	$(INSTALL) -m 644 assets/dbab-chk-list.1 $(mandir)
-	$(INSTALL) -m 644 assets/dbab-get-list.1 $(mandir)
-	$(INSTALL) -m 644 assets/dhcp-add-wpad.1 $(mandir)
+	$(INSTALL) -m 644 assets/dbab-svr.8 $(mandir)/man8
+	$(INSTALL) -m 644 assets/dbab-add-list.1 $(mandir)/man1
+	$(INSTALL) -m 644 assets/dbab-chk-list.1 $(mandir)/man1
+	$(INSTALL) -m 644 assets/dbab-get-list.1 $(mandir)/man1
+	$(INSTALL) -m 644 assets/dhcp-add-wpad.1 $(mandir)/man1
 	$(INSTALL) -m 644 dbab.html $(docdir)
 
 	$(INSTALL) -m 644 assets/dbab.addr $(astdir)
