@@ -1,0 +1,14 @@
+# systemd configuration for dbab.  -*- conf -*-
+
+[Unit]
+Description=Dnsmasq-Based Ad-Blocker
+After=network.target
+Documentation=man:dbab-svr(8)
+Documentation=http://sfxpt.wordpress.com/2014/11/30/use-new-dbab-to-set-proxy-automatically/
+
+[Service]
+ExecStart=/usr/sbin/dbab-srv
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
