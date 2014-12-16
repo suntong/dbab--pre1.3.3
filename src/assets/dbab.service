@@ -8,7 +8,7 @@ Documentation=http://sfxpt.wordpress.com/2014/11/30/use-new-dbab-to-set-proxy-au
 
 [Service]
 ExecStart=/usr/sbin/dbab-srv
-Type=forking
+Type=simple
 
 [Install]
 WantedBy=multi-user.target
