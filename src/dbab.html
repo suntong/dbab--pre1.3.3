@@ -936,12 +936,12 @@ http://www.gnu.org/software/src-highlite -->
 /etc/init<span style="color: #990000">.</span>d/dbab stop
 
 <span style="font-style: italic"><span style="color: #9A1900"># use the second IP for dbab-svr to listens on</span></span>
-ip -f inet addr show eth0 <span style="color: #990000">|</span> awk <span style="color: #FF0000">'/inet /{print $2}'</span> <span style="color: #990000">|</span> sed <span style="color: #FF0000">'s|/.*$||; 1d'</span> <span style="color: #990000">|</span> sudo tee /etc/dbab<span style="color: #990000">.</span>addr
+ip -f inet addr show eth0 <span style="color: #990000">|</span> awk <span style="color: #FF0000">'/inet /{print $2}'</span> <span style="color: #990000">|</span> sed <span style="color: #FF0000">'s|/.*$||; 1d'</span> <span style="color: #990000">|</span> sudo tee /etc/dbab/dbab<span style="color: #990000">.</span>addr
 <span style="font-style: italic"><span style="color: #9A1900"># verify its content before moving on</span></span>
-cat /etc/dbab<span style="color: #990000">.</span>addr
+cat /etc/dbab/dbab<span style="color: #990000">.</span>addr
 <span style="font-style: italic"><span style="color: #9A1900"># if it is not what you intent it to be, correct it with your text editor</span></span>
   <span style="font-style: italic"><span style="color: #9A1900"># or, set it manually (with a different IP address)</span></span>
-  echo <span style="color: #993399">192.168</span><span style="color: #990000">.</span><span style="color: #993399">2.101</span> <span style="color: #990000">|</span> sudo tee /etc/dbab<span style="color: #990000">.</span>addr
+  echo <span style="color: #993399">192.168</span><span style="color: #990000">.</span><span style="color: #993399">2.101</span> <span style="color: #990000">|</span> sudo tee /etc/dbab/dbab<span style="color: #990000">.</span>addr
 
 <span style="font-style: italic"><span style="color: #9A1900"># update ad blocking list with the second IP address</span></span>
 /usr/sbin/dbab-get-list
@@ -949,9 +949,9 @@ cat /etc/dbab<span style="color: #990000">.</span>addr
 
 <span style="font-style: italic"><span style="color: #9A1900"># OPTIONAL! do the following only if you have squid caching server</span></span>
 <span style="font-style: italic"><span style="color: #9A1900"># and you want to enable automatic WPAD service</span></span>
-hostname <span style="color: #990000">|</span> tee /etc/dbab<span style="color: #990000">.</span>proxy
+hostname <span style="color: #990000">|</span> tee /etc/dbab/dbab<span style="color: #990000">.</span>proxy
   <span style="font-style: italic"><span style="color: #9A1900"># NB, if your squid caching server is on a different server, do this instead</span></span>
-  echo my_squid_server_name <span style="color: #990000">|</span> tee /etc/dbab<span style="color: #990000">.</span>proxy
+  echo my_squid_server_name <span style="color: #990000">|</span> tee /etc/dbab/dbab<span style="color: #990000">.</span>proxy
 <span style="font-style: italic"><span style="color: #9A1900"># then,</span></span>
 /usr/sbin/dhcp-add-wpad
 <span style="font-style: italic"><span style="color: #9A1900"># Again verify everything here before moving on because script might not be</span></span>

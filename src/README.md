@@ -60,21 +60,21 @@ The `dbab-chk-list` can help you to check if your own list is already covered by
 
 ## DHCP-ADD-WPAD
 
-he `dhcp-add-wpad` will take the content in `/etc/dbab.proxy` as the host name of the squid caching server, as well as taking the content in `/etc/dbab.addr` as
+he `dhcp-add-wpad` will take the content in `/etc/dbab/dbab.proxy` as the host name of the squid caching server, as well as taking the content in `/etc/dbab/dbab.addr` as
 the IP address of `dhcp` server, then enable the automatic WPAD service within the system, with the help of the DNS and DHCP server. 
 
 ## FILES 
 
-* /etc/dbab.addr:  
+* /etc/dbab/dbab.addr:  
   The IP address that `dbab-svr` listens on. Defaults to localhost.
   
-* /etc/dbab.list-:  
+* /etc/dbab/dbab.list-:  
   The entries you want to filter out from the pgl.yoyo.org lists. List sites you still wish to visit there. 
 
-* /etc/dbab.list+:  
+* /etc/dbab/dbab.list+:  
   The entries you want to add to blocking list on top of the pgl.yoyo.org list, used by `dbab-add-list`. 
 
-* /etc/dbab.proxy:  
+* /etc/dbab/dbab.proxy:  
   The name or IP address of your squid caching server. Defaults to localhost.
   
 * /usr/share/doc/dbab/dbab.html:  

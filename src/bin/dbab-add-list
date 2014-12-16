@@ -7,8 +7,8 @@
 ## License: BSD license
 ##-----------------------------------------------------------------------
 
-dbab_list=/etc/dbab.list+
-dbabsvr_addr=`cat /etc/dbab.addr`
+dbab_list=/etc/dbab/dbab.list+
+dbabsvr_addr=`cat /etc/dbab/dbab.addr`
 
 # Add the trash-sites to DNSmasq blocking
 sed 's#^.*$#'"address=/&/$dbabsvr_addr#" $dbab_list > /etc/dnsmasq.d/dnsmasq.trashsites.conf
