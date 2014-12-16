@@ -34,6 +34,7 @@ install:
 	$(INSTALL) -m 755 bin/dbab-get-list $(bindir)
 	$(INSTALL) -m 755 bin/dbab-add-list $(bindir)
 	$(INSTALL) -m 755 bin/dbab-chk-list $(bindir)
+	$(INSTALL) -m 755 bin/dhcp-add-wpad $(bindir)
 	$(INSTALL) -m 755 bin/dbab-svr $(bindir)
 	$(INSTALL) -m 755 bin/dbab $(etcdir)/init.d
 	$(INSTALL) -m 644 assets/dbab.service $(ssddir)
