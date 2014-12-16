@@ -1,19 +1,40 @@
 #! /bin/sh
-# kFreeBSD do not accept scripts as interpreters, using #!/bin/sh and sourcing.
-if [ true != "$INIT_D_SCRIPT_SOURCED" ] ; then
-    set "$0" "$@"; INIT_D_SCRIPT_SOURCED=true . /lib/init/init-d-script
-fi
+# /etc/init.d/dbab
+#
+
+# Ref: https://wiki.debian.org/LSBInitScripts
 ### BEGIN INIT INFO
 # Provides:          dbab
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: dbab
-# Description:       dnsmasq-based ad-blocking using pixelserv.
+# Short-Description: Start dbab-svr daemon at boot time
+# Description:       Enable service provided by dbab-svr daemon.
 ### END INIT INFO
 
-DESC="dnsmasq-based ad-blocker"
-DAEMON=/usr/sbin/dbab-srv
+# http://lintian.debian.org/tags/init.d-script-does-not-source-init-functions.html
+. /lib/lsb/init-functions
 
-START_ARGS="--background --make-pidfile"
+# Carry out specific functions when asked to by the system
+case "$1" in
+   start)
+     echo "Starting dbab pixel server"
+     /usr/sbin/dbab-svr &
+     ;;
+   stop)
+     echo "Stopping dbab pixel server"
+     killall dbab-svr
+     ;;
+   restart|force-reload)
+     echo "Restarting dbab pixel server"
+     $0 stop
+     $0 start
+     ;;
+   *)
+     echo "Usage: /etc/init.d/dbab {start|stop|restart}"
+     exit 1
+     ;;
+esac
+
+exit 0
