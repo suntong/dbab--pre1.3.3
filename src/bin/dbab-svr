@@ -43,7 +43,7 @@ if ( $proxyaddr =~ /^([\w.]+)$/ ) {
     $proxyaddr = $1;                # $proxyaddr now untainted
 }
 else {
-    die "Bad listen to address: '$proxyaddr'";
+    die "Error opening proxy definition file: '$proxyaddr'";
 }
 
 
