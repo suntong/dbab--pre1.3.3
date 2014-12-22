@@ -1,2 +1,4 @@
+# The following problems are because of using a private version of
+# SysV init.d script, i.e., not real problems. See README.Debian.
 dbab binary: init.d-script-does-not-implement-required-option *
 dbab binary: init.d-script-does-not-source-init-functions *
