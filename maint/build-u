@@ -8,4 +8,5 @@ prog_deb=`echo $prog_spec | sed 's/-u$//'`-d
 
 # Ubuntu-lize
 sed -i "1s/ unstable;/ `lsb_release -cs`;/" debian/changelog
+sed -i '$s/^.*$/\tdh $@/' debian/rules
 echo done.
