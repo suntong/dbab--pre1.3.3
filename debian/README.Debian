@@ -8,7 +8,17 @@ This has not been an issue until things get complicated. OK, here was my goal:
 - And most importantly, support as many systems in different version as
   possible.
 
-This sounds good, but only on paper, because there have to be some serious
+## V1.2.2 solution
+
+Every effort has been made to make sure no compromise in Debian Sid because
+a package uploaded to unstable is packaged for unstable and should work as
+well as possible there. For others, a separated build if required, and
+even separated patches if necessary. I.e., pack each distro separately.
+
+
+## V1.2.1 solution
+
+The goal sounds good, but only on paper, because there have to be some serious
 compromises to make. Here is a list of all issues that need to dealt with:
 
 - This original init script that I provided myself

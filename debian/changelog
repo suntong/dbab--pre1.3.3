@@ -1,3 +1,19 @@
+dbab (1.2.2-1) unstable; urgency=medium
+
+  * Targeting back to Debian Sid
+
+ -- Tong Sun <suntong001@users.sourceforge.net>  Mon, 22 Dec 2014 21:45:25 -0500
+
+dbab (1.2.1-1) unstable; urgency=medium
+
+  * Fix previous script problem that causes the package unusable
+  * Replace the "home-made" SysV init.d script with the ready-made
+    solution provided out-of-box by sysvinit-utils ver2.88dsf-58.
+  * Drop the init-system-helpers v1.18+ dependency so all the three,
+    Debian Sid, Debian wheezy and Ubuntu can install it.
+
+ -- Tong Sun <suntong001@users.sourceforge.net>  Sun, 21 Dec 2014 23:28:54 -0500
+
 dbab (1.1.2-1) unstable; urgency=low
 
   * Now able to set proxy automatically
