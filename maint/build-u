@@ -9,4 +9,5 @@ prog_deb=`echo $prog_spec | sed 's/-u$//'`-d
 # Ubuntu-lize
 sed -i "1s/ unstable;/ `lsb_release -cs`;/" debian/changelog
 sed -i '$s/^.*$/\tdh $@/' debian/rules
+sed -i '/Standards-Version:/s/3.9.6/3.9.5/' debian/control
 echo done.
