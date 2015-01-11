@@ -79,7 +79,7 @@ while (my  $new_sock = $sock->accept() ) {
         if ( /^$/ ) { last; }
     }
 
-    if ($request{METHOD} eq 'GET' and
+    if (defined($request{METHOD}) and $request{METHOD} eq 'GET' and
     	    ($request{URL} eq '/proxy.pac' or
     	     $request{URL} eq '/wpad.dat') ) {
 	#------- Serve pac/wpad file --------------------
