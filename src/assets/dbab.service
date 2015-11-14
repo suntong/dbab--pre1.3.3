@@ -4,7 +4,7 @@
 Description=Dnsmasq-Based Ad-Blocker
 After=network.target
 Documentation=man:dbab-svr(8)
-Documentation=http://sfxpt.wordpress.com/2014/11/30/use-new-dbab-to-set-proxy-automatically/
+Documentation=http://htmlpreview.github.io/?https://github.com/suntong001/dbab/blob/master/src/dbab.html
 
 [Service]
 ExecStart=/usr/sbin/dbab-svr

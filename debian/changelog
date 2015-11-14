@@ -1,6 +1,7 @@
-dbab (1.2.2-1) unstable; urgency=medium
+dbab (1.2.2-2) unstable; urgency=high
 
   * Targeting back to Debian Sid
+  * The reported wrong path problems was fixed in v1.2.1 (closes: #774191)
 
  -- Tong Sun <suntong001@users.sourceforge.net>  Mon, 22 Dec 2014 21:45:25 -0500
 
