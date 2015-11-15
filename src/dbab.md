@@ -175,3 +175,27 @@ The `dbab` is however, using an entirely different approach for ad blocking. It'
 - **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can define your local tweaking that filters them out.
 - **Easily customized**. It's trivial to add your own entries to the ad blocking list if the existing ones are not enough for you.
 
+## Faq
+
+### dnsmasq: setting capabilities failed
+
+If for any reason that you test `dbab` under docker and you get the following error when starting `dnsmasq` (say with `service dnsmasq start`):
+
+	% service dnsmasq start 
+	[....] Starting DNS forwarder and DHCP server: dnsmasq
+	dnsmasq: setting capabilities failed: Operation not permitted
+	 failed!
+
+The fix is to tell dnsmasq to run as root by adding `user=root` to `/etc/dnsmasq.conf`:
+
+```bash
+cp /etc/dnsmasq.conf /tmp
+sed -i '/^#user=/s/$/\nuser=root/' /etc/dnsmasq.conf
+diff -wU1 /tmp/dnsmasq.conf /etc/dnsmasq.conf
+
+# then
+service dnsmasq start
+```
+
+Ref: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=514214
+
