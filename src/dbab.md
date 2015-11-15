@@ -175,6 +175,8 @@ The `dbab` is however, using an entirely different approach for ad blocking. It'
 - **Maintenance free**. You don't need to maintain the list of ad sites yourself. The block list can be downloaded from pgl.yoyo.org periodically. If you don't like some of the entries there, you can define your local tweaking that filters them out.
 - **Easily customized**. It's trivial to add your own entries to the ad blocking list if the existing ones are not enough for you.
 
+<a name="faq"/>
+
 ## Faq
 
 ### dnsmasq: setting capabilities failed
