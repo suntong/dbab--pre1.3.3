@@ -83,7 +83,9 @@ the IP address of `dhcp` server, then enable the automatic WPAD service within t
 
 ## AUTHOR
 
-Copyright: 2013~2015 Tong SUN ![suntong from cpan.org](http://i.stack.imgur.com/CNcsd.png "email address")  
+Tong SUN  
+![suntong from cpan.org](http://i.stack.imgur.com/CNcsd.png "email address")  
+Copyright: 2013~2015  
 License: BSD-3-Clause
 
 The pixelserv was originally downloaded from  
