@@ -77,7 +77,7 @@ the IP address of `dhcp` server, then enable the automatic WPAD service within t
 * /etc/dbab/dbab.proxy:  
   The name or IP address of your squid caching server. Defaults to localhost.
   
-* /usr/share/doc/dbab/dbab.html:  
+* /usr/share/doc/dbab/dbab.md:  
   The more detailed introduction and installation guild.
   
 

@@ -47,7 +47,7 @@ install:
 	$(INSTALL) -m 644 assets/dbab-chk-list.1 $(mandir)/man1
 	$(INSTALL) -m 644 assets/dbab-get-list.1 $(mandir)/man1
 	$(INSTALL) -m 644 assets/dhcp-add-wpad.1 $(mandir)/man1
-	$(INSTALL) -m 644 dbab.html $(docdir)
+	$(INSTALL) -m 644 dbab.md $(docdir)
 
 	$(INSTALL) -m 644 assets/dbab.addr $(astdir)
 	$(INSTALL) -m 644 assets/dbab.list+ $(astdir)

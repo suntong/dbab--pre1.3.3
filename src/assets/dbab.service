@@ -4,7 +4,7 @@
 Description=Dnsmasq-Based Ad-Blocker
 After=network.target
 Documentation=man:dbab-svr(8)
-Documentation=http://htmlpreview.github.io/?https://github.com/suntong001/dbab/blob/master/src/dbab.html
+Documentation=https://github.com/suntong/dbab/blob/master/src/dbab.md
 
 [Service]
 ExecStart=/usr/sbin/dbab-svr
