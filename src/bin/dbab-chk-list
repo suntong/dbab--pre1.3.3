@@ -8,7 +8,7 @@
 ##-----------------------------------------------------------------------
 
 dbab_list=/etc/dbab/dbab.list+
-block_list=/etc/dnsmasq.d/dnsmasq.adblock.conf
+block_list=/etc/dnsmasq.d/dbab.adblock.conf
 
 # Check if our trash-sites list is already covered 
 grep -Ff $dbab_list $block_list

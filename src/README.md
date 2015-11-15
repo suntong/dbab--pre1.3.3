@@ -44,7 +44,7 @@ The `dbab-svr` is a super minimal web server / pixelserv, it has one purpose of 
 
 ## DBAB-GET-LIST
 
-The `dbab-get-list` is used to get dnsmasq blocking list from pgl.yoyo.org to be used by DNSmasq. The result is stored as `/etc/dnsmasq.d/dnsmasq.adblock.conf`.
+The `dbab-get-list` is used to get dnsmasq blocking list from pgl.yoyo.org to be used by DNSmasq. The result is stored as `/etc/dnsmasq.d/dbab.adblock.conf`.
 
 You can run it once, or put it in a cron job so as to update the block list periodically. E.g., to update on a weekly basis:
 
@@ -52,7 +52,7 @@ You can run it once, or put it in a cron job so as to update the block list peri
 
 ## DBAB-ADD-LIST
 
-You can use `dbab-add-list` to add your own entries to `dnsmasq` blocking list, if the list from pgl.yoyo.org is not sufficient for you. The result is stored as `/etc/dnsmasq.d/dnsmasq.trashsites.conf`.
+You can use `dbab-add-list` to add your own entries to `dnsmasq` blocking list, if the list from pgl.yoyo.org is not sufficient for you. The result is stored as `/etc/dnsmasq.d/dbab.trashsites.conf`.
 
 ## DBAB-CHK-LIST
 
