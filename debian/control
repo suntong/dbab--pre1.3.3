@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Tong Sun <suntong001@users.sourceforge.net>
 Build-Depends: debhelper (>= 9), dh-systemd, ruby-ronn (>= 0.7.3)
 Standards-Version: 3.9.6
-Homepage: https://github.com/suntong001/dbab
-Vcs-Git: https://github.com/suntong001/dbab.git
-Vcs-Browser: https://github.com/suntong001/dbab
+Homepage: https://github.com/suntong/dbab
+Vcs-Git: https://github.com/suntong/dbab.git
+Vcs-Browser: https://github.com/suntong/dbab
 
 Package: dbab
 Architecture: all
