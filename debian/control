@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/suntong/dbab
 
 Package: dbab
 Architecture: all
-Depends: ${misc:Depends}, ${perl:Depends}, dnsmasq, curl 
+Depends: ${misc:Depends}, ${perl:Depends}, dnsmasq, curl, dnsutils
 Description: dnsmasq-based ad-blocking using pixelserv
  Block advertising sites at the DNS level. dbab is feather weight,
  both in terms of package size and CPU usage, because no pattern matching or
