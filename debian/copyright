@@ -3,11 +3,11 @@ Upstream-Name: dbab
 Source: https://github.com/suntong001/dbab
 
 Files: *
-Copyright: 2013-2014 Tong Sun <suntong001@users.sourceforge.net>
+Copyright: 2013-2015 Tong Sun <suntong001@users.sourceforge.net>
 License: BSD-3-Clause
 
 Files: bin/dbab-svr
-Copyright: 2013-2014 Tong Sun <suntong001@users.sourceforge.net>
+Copyright: 2013-2015 Tong Sun <suntong001@users.sourceforge.net>
 	   Originally wrote by Piet Wintjens, email & date unknown
 License: BSD-3-Clause
   It is covered by the new BSD (no advertising clause) license
