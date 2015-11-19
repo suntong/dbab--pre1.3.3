@@ -7,6 +7,12 @@
 ## License: BSD license
 ##-----------------------------------------------------------------------
 
+grep -n '^[[:punct:]]*$' /etc/dbab/dbab.list- && {
+  echo "ERROR: Blank line(s) found in /etc/dbab/dbab.list-"
+  printf "\tRemove them before proceeding.\n"
+  exit 1
+}
+
 dbabsvr_addr=`cat /etc/dbab/dbab.addr`
 
 # Down the DNSmasq formatted ad block list
