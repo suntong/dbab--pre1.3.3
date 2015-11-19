@@ -179,6 +179,29 @@ The `dbab` is however, using an entirely different approach for ad blocking. It'
 
 ## Faq
 
+### How to whitelist some sites?
+
+First see what exactly was listed in the pgl.yoyo.org list. E.g., to enable `www.googleadservices.com`, merely putting `www.googleadservices.com` into `etc/dbab/dbab.list-` won't help, because:
+
+	$ grep googleadservices /etc/dnsmasq.d/dbab.*
+	address=/googleadservices.com/127.0.0.1
+
+I.e., we should put in `googleadservices.com` instead of `www.googleadservices.com`.
+
+Now suppose we need to whitelist `googleadservices.com` and `urlcash.net`, here is how to do:
+
+	echo 'googleadservices.com' > /etc/dbab/dbab.list-
+	echo 'urlcash.net' >> /etc/dbab/dbab.list-
+
+	/usr/sbin/dbab-get-list
+	grep googleadservices  /etc/dnsmasq.d/dbab.*
+
+	service dnsmasq restart 
+
+	dig @127.0.0.1 www.googleadservices.com
+
+It should show real IP instead of `127.0.0.1`.
+
 ### dnsmasq: setting capabilities failed
 
 If for any reason that you test `dbab` under docker and you get the following error when starting `dnsmasq` (say with `service dnsmasq start`):
