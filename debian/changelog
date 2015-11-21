@@ -1,3 +1,24 @@
+dbab (1.3.1-1) unstable; urgency=medium
+
+  * New upstream release (1.3.1).
+      - [!] make the pixelserv more robust
+      - [!] fix dbab.service exec file name
+      - [!] closes: #774191
+      - [*] use dbab.md to replace dbab.html
+      - [*] rename conf files to dbab.xxx (incompatible with previous version!)
+      - [!] closes: #775253 by using conf files as /etc/dnsmasq.d/dbab.xxx
+      - [+] dbab.md add faq
+      - [!] amend dbab.list- to reflect upstream list change
+      - [*] update copyright year
+      - [*] update git home
+      - [+] add must-have Depends: dnsutils
+      - [+] add "How to whitelist some sites" section to FAQ
+      - [+] add blank-line-checking to dbab-get-list to prevent errors
+      - [!] fix "dep5-copyright-license-name-not-unique"
+      - [!] fix "missing-license-paragraph"
+
+ -- Tong Sun <suntong001@users.sourceforge.net>  Fri, 20 Nov 2015 22:25:56 -0500
+
 dbab (1.2.2-2) unstable; urgency=high
 
   * Targeting back to Debian Sid
