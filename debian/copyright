@@ -10,6 +10,7 @@ Files: bin/dbab-svr
 Copyright: 2013-2015 Tong Sun <suntong001@users.sourceforge.net>
 	   Originally wrote by Piet Wintjens, email & date unknown
 License: BSD-3-Clause
+License-Grant:
   It is covered by the new BSD (no advertising clause) license
   Ref: http://proxytunnel.sourceforge.net/pixelserv.php
   .
