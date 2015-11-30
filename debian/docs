@@ -1,3 +1,5 @@
 dbab.md
 assets/dbab-dnsmasq.intranet.conf
 assets/dbab-dnsmasq.service.conf
+assets/dbab-squid.localnet.conf
+assets/dbab-squid.service.conf
