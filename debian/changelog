@@ -1,9 +1,8 @@
-dbab (1.3.1-1) unstable; urgency=medium
+dbab (1.3.2-1) unstable; urgency=medium
 
-  * New upstream release (1.3.1).
+  * New upstream release (1.3.2).
       - [!] make the pixelserv more robust
       - [!] fix dbab.service exec file name
-      - [!] closes: #774191
       - [*] use dbab.md to replace dbab.html
       - [*] rename conf files to dbab.xxx (incompatible with previous version!)
       - [!] closes: #775253 by using conf files as /etc/dnsmasq.d/dbab.xxx
@@ -16,8 +15,10 @@ dbab (1.3.1-1) unstable; urgency=medium
       - [+] add blank-line-checking to dbab-get-list to prevent errors
       - [!] fix "dep5-copyright-license-name-not-unique"
       - [!] fix "missing-license-paragraph"
+      - [+] rewrite dbab.md to include everything; add/amend supporting files
+      - [+] add helpful squid config settings files
 
- -- Tong Sun <suntong001@users.sourceforge.net>  Fri, 20 Nov 2015 22:25:56 -0500
+ -- Tong Sun <suntong001@users.sourceforge.net>  Wed, 09 Dec 2015 17:32:06 -0500
 
 dbab (1.2.2-2) unstable; urgency=high
 
