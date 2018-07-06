@@ -1,3 +1,9 @@
+dbab (1.3.2-2) unstable; urgency=low
+
+  * Fix build because ronn split out of ruby-ronn
+
+ -- Tong Sun <suntong001@users.sourceforge.net>  Fri, 06 Jul 2018 01:46:13 +0000
+
 dbab (1.3.2-1) unstable; urgency=medium
 
   * New upstream release (1.3.2).
@@ -43,4 +49,3 @@ dbab (1.1.2-1) unstable; urgency=low
   * Official Debian release (closes: #771532)
 
  -- Tong Sun <suntong001@users.sourceforge.net>  Sun, 14 Dec 2014 20:37:58 -0500
-

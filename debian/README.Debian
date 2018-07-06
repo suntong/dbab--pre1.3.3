@@ -2,7 +2,7 @@
 
 This has not been an issue until things get complicated. OK, here was my goal:
 
-- Start the dbab service on on machine starts.
+- Start the dbab service on machine starts.
 - Make it possible by using the SysV init.d script.
 - But also support those systems that uses Systemd.
 - And most importantly, support as many systems in different version as
