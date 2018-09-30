@@ -6,7 +6,7 @@ dbab (1.3.2-2) unstable; urgency=low
   [ Boyuan Yang ]
   * move debian/source.lintian-overrides to debian/sources/lintian-overrides
 
- -- Tong Sun <suntong001@users.sourceforge.net>  Fri, 06 Jul 2018 01:46:13 +0000
+ -- Tong Sun <suntong001@users.sourceforge.net>  Sat, 29 Sep 2018 22:32:07 -0400
 
 dbab (1.3.2-1) unstable; urgency=medium
 
