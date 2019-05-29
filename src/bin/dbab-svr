@@ -61,6 +61,11 @@ if ( !defined($sock) ) {
     exit(1);
 }
 
+# If the connection is open, but get closed before dbab-svr has
+# sent the pixel, the SIGPIPE gets send, and dbab-srv will die.
+# Ignore such signal as we can write to a closed connection anyway. 
+$SIG{'PIPE'} = 'IGNORE';
+
 # Await requests and handle them as they arrive
 while (1) {
     my  $new_sock = $sock->accept() or next;
@@ -88,7 +93,7 @@ while (1) {
 	#------- Serve pac/wpad file --------------------
         print $new_sock "HTTP/1.0 200 OK$crlf";
         print $new_sock "Connection: close$crlf";
-        print $new_sock "Content-Type: application/octet-stream$crlf";
+        print $new_sock "Content-Type: application/octet-stream$crlf$crlf";
         print $new_sock "function FindProxyForURL(url, host) {".
             qq| return "PROXY $proxyaddr:3128; DIRECT"; }$crlf|;
     } else {
@@ -96,7 +101,6 @@ while (1) {
         print $new_sock "HTTP/1.0 200 OK$crlf";
         print $new_sock "Connection: close$crlf";
         print $new_sock "Content-type: image/gif$crlf";
-        print $new_sock "Accept-ranges: bytes$crlf";
         print $new_sock "Content-length: 43$crlf$crlf";
         print $new_sock $pixel;
     }
