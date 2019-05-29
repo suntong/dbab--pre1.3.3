@@ -3,7 +3,7 @@
 ##-----------------------------------------------------------------------
 ## Porgram: dbab-svr pixelserv
 ## Purpose: super minimal webserver serving a 1x1 pixel transparent gif
-## Authors: Tong Sun (c) 2013,2014
+## Authors: Tong Sun (c) 2013-2019
 ## Authors: Originally wrote by Piet Wintjens, date unknown
 ## License: covered by the new BSD (no advertising clause) license
 ## Reference: Well House Consultants training course
@@ -62,7 +62,10 @@ if ( !defined($sock) ) {
 }
 
 # Await requests and handle them as they arrive
-while (my  $new_sock = $sock->accept() ) {
+while (1) {
+    my  $new_sock = $sock->accept() or next;
+    # set timeout of 2s to avoid blocking the whole program
+    $new_sock->setsockopt(SOL_SOCKET, SO_RCVTIMEO, pack('l!l!', 2, 0));
     my %request = ();
     local $/ = $crlf;
     #-------- Read Request ---------------
@@ -83,15 +86,19 @@ while (my  $new_sock = $sock->accept() ) {
     	    ($request{URL} eq '/proxy.pac' or
     	     $request{URL} eq '/wpad.dat') ) {
 	#------- Serve pac/wpad file --------------------
-    	print $new_sock "function FindProxyForURL(url, host) {".
-    	    qq| return "PROXY $proxyaddr:3128; DIRECT"; }$crlf|;
+        print $new_sock "HTTP/1.0 200 OK$crlf";
+        print $new_sock "Connection: close$crlf";
+        print $new_sock "Content-Type: application/octet-stream$crlf";
+        print $new_sock "function FindProxyForURL(url, host) {".
+            qq| return "PROXY $proxyaddr:3128; DIRECT"; }$crlf|;
     } else {
 	#------- Serve pixel file ----------------------
-	print $new_sock "HTTP/1.1 200 OK$crlf";
-	print $new_sock "Content-type: image/gif$crlf";
-	print $new_sock "Accept-ranges: bytes$crlf";
-	print $new_sock "Content-length: 43$crlf$crlf";
-	print $new_sock $pixel;
+        print $new_sock "HTTP/1.0 200 OK$crlf";
+        print $new_sock "Connection: close$crlf";
+        print $new_sock "Content-type: image/gif$crlf";
+        print $new_sock "Accept-ranges: bytes$crlf";
+        print $new_sock "Content-length: 43$crlf$crlf";
+        print $new_sock $pixel;
     }
 
     shutdown( $new_sock, 2 );
