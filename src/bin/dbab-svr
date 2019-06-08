@@ -45,7 +45,8 @@ if ( $proxyaddr =~ /^([\w.]+)$/ ) {
 else {
     die "Error opening proxy definition file: '$proxyaddr'";
 }
-
+my $autoProxy = "function FindProxyForURL(url, host) {".
+            qq| return "PROXY $proxyaddr:3128; DIRECT"; }$crlf|;
 
 # Setup and create socket
 my $sock = new IO::Socket::INET(
@@ -94,12 +95,12 @@ while (1) {
         print $new_sock "HTTP/1.0 200 OK$crlf";
         print $new_sock "Connection: close$crlf";
         print $new_sock "Content-Type: application/octet-stream$crlf$crlf";
-        print $new_sock "function FindProxyForURL(url, host) {".
-            qq| return "PROXY $proxyaddr:3128; DIRECT"; }$crlf|;
+        print $new_sock "$autoProxy";
     } else {
 	#------- Serve pixel file ----------------------
         print $new_sock "HTTP/1.0 200 OK$crlf";
         print $new_sock "Connection: close$crlf";
+        print $new_sock "Cache-Control: public, max-age=31536000$crlf";
         print $new_sock "Content-type: image/gif$crlf";
         print $new_sock "Content-length: 43$crlf$crlf";
         print $new_sock $pixel;
