@@ -7,7 +7,8 @@
 ## License: BSD license
 ##-----------------------------------------------------------------------
 
-dbabsvr_addr=`cat /etc/dbab/dbab.addr`
+dbabsvr=`cat /etc/dbab/dbab.proxy`
+dbabsvr_addr=`dig +short $dbabsvr`
 
 # Add wpad DNS entry
 echo "host-record=wpad,$dbabsvr_addr" > /etc/dnsmasq.d/dbab.wpad.conf
