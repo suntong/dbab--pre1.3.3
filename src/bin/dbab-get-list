@@ -17,6 +17,6 @@ dbabsvr_addr=`cat /etc/dbab/dbab.addr`
 dbab_conf=/etc/dnsmasq.d/dbab-map.adblock.conf
 
 # Down the DNSmasq formatted ad block list
-curl "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=dnsmasq&showintro=0&mimetype=plaintext" | grep -vFf /etc/dbab/dbab.list- | sed "s/127\.0\.0\.1/$dbabsvr_addr/" > $dbab_conf
+curl "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=dnsmasq&showintro=0&mimetype=plaintext" | grep -vFf /etc/dbab/dbab.list- | sed "s/127\.0\.0\.1/$dbabsvr_addr/" > $dbab_conf
 echo File $dbab_conf updated.
 
