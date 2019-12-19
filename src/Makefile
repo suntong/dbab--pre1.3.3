@@ -24,7 +24,6 @@ clean:
 
 install:
 	$(INSTALL) -m 755 -d $(bindir)
-	$(INSTALL) -m 755 -d $(mandir)/man1
 	$(INSTALL) -m 755 -d $(mandir)/man8
 	$(INSTALL) -m 755 -d $(docdir)
 	$(INSTALL) -m 755 -d $(libdir)/init
@@ -43,10 +42,10 @@ install:
 	$(INSTALL) -m 644 assets/dbab.service $(ssddir)
 
 	$(INSTALL) -m 644 assets/dbab-svr.8 $(mandir)/man8
-	$(INSTALL) -m 644 assets/dbab-add-list.1 $(mandir)/man1
-	$(INSTALL) -m 644 assets/dbab-chk-list.1 $(mandir)/man1
-	$(INSTALL) -m 644 assets/dbab-get-list.1 $(mandir)/man1
-	$(INSTALL) -m 644 assets/dhcp-add-wpad.1 $(mandir)/man1
+	$(INSTALL) -m 644 assets/dbab-add-list.8 $(mandir)/man8
+	$(INSTALL) -m 644 assets/dbab-chk-list.8 $(mandir)/man8
+	$(INSTALL) -m 644 assets/dbab-get-list.8 $(mandir)/man8
+	$(INSTALL) -m 644 assets/dhcp-add-wpad.8 $(mandir)/man8
 	$(INSTALL) -m 644 dbab.md $(docdir)
 
 	$(INSTALL) -m 644 assets/dbab.addr $(astdir)
